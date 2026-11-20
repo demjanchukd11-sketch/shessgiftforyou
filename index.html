@@ -1,0 +1,1219 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твій особливий день ♟</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap');
+
+        :root {
+            --bg: #101a19;
+            --panel: #192725;
+            --panel2: #21332e;
+            --green: #8abf91;
+            --gold: #f2c66d;
+            --text: #f5f2e8;
+            --muted: #a7b7aa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #345b42;
+            filter: blur(150px);
+            opacity: .17;
+            top: -200px;
+            left: -150px;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: #a47735;
+            filter: blur(150px);
+            opacity: .10;
+            bottom: -200px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            transition: .25s;
+        }
+
+        .container {
+            width: min(1000px, 92%);
+            margin: auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HEADER */
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            border-bottom: 1px solid #ffffff12;
+        }
+
+        .logo {
+            font-size: 19px;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .header-label {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* HERO */
+
+        .hero {
+            text-align: center;
+            padding: 90px 10px 80px;
+            animation: fadeUp 1s ease;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #8abf9144;
+            background: #8abf9110;
+            color: var(--green);
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 75px);
+            line-height: 1.08;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            max-width: 530px;
+            margin: 22px auto 30px;
+            color: var(--muted);
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        .hero-piece {
+            font-size: 85px;
+            color: var(--gold);
+            margin: 20px 0 30px;
+            text-shadow: 0 0 35px #f2c66d55;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        /* BUTTONS */
+
+        .primary-btn {
+            padding: 16px 30px;
+            border-radius: 14px;
+            color: #17211c;
+            font-weight: 900;
+            font-size: 16px;
+            background: var(--gold);
+            box-shadow: 0 5px 0 #a77c36;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 9px 0 #a77c36, 0 0 25px #f2c66d33;
+        }
+
+        .primary-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #a77c36;
+        }
+
+        /* SECTIONS */
+
+        section {
+            margin-bottom: 85px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-heading .small {
+            color: var(--green);
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 900;
+        }
+
+        .section-heading h2 {
+            font-size: 34px;
+            margin-top: 9px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        /* WISHES */
+
+        .wish-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 17px;
+        }
+
+        .wish-card {
+            background: linear-gradient(145deg, #21332e, #192522);
+            border: 1px solid #ffffff0c;
+            border-radius: 20px;
+            padding: 25px 22px;
+            text-align: left;
+            cursor: pointer;
+            transition: .3s;
+            min-height: 175px;
+        }
+
+        .wish-card:hover {
+            transform: translateY(-7px);
+            border-color: #8abf9166;
+            background: #263b32;
+            box-shadow: 0 12px 30px #0003;
+        }
+
+        .wish-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .wish-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .wish-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        .card-hint {
+            display: block;
+            color: var(--gold);
+            font-size: 12px;
+            margin-top: 13px;
+            font-weight: 800;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .stat {
+            background: #192725;
+            border-radius: 17px;
+            padding: 23px 10px;
+            text-align: center;
+            border: 1px solid #ffffff0a;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 29px;
+            color: var(--gold);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        /* CHESS PUZZLE */
+
+        .chess-section {
+            background: linear-gradient(145deg, #21352d, #182420);
+            border: 1px solid #8abf9125;
+            border-radius: 28px;
+            padding: 40px 25px;
+        }
+
+        .chess-layout {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 45px;
+            flex-wrap: wrap;
+        }
+
+        .board-wrap {
+            padding: 10px;
+            background: #d5bd8b;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px #0005;
+            flex-shrink: 0;
+        }
+
+        /* FIXED SYMMETRICAL CHESS BOARD */
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            grid-template-rows: repeat(8, minmax(0, 1fr));
+            width: min(400px, 76vw);
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 3px;
+        }
+
+        .square {
+            width: 100%;
+            height: 100%;
+            min-width: 0;
+            min-height: 0;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-size: clamp(23px, 6vw, 45px);
+            cursor: pointer;
+            user-select: none;
+            transition: background .15s;
+        }
+
+        .light {
+            background: #f0dfb9;
+        }
+
+        .dark-square {
+            background: #718e6c;
+        }
+
+        .square:hover {
+            filter: brightness(1.12);
+        }
+
+        .piece-white {
+            color: #fff;
+            text-shadow: 1px 2px 3px #333, 0 0 2px #333;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .piece-black {
+            color: #252c29;
+            text-shadow: 0 1px 2px #fff7;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .coord {
+            position: absolute;
+            font-size: 10px;
+            font-weight: 900;
+            bottom: 2px;
+            left: 3px;
+            color: #26372c;
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .selected {
+            background: #f6d45d !important;
+        }
+
+        .possible {
+            box-shadow: inset 0 0 0 4px #f2bd3e;
+        }
+
+        .winning {
+            background: #a9d98d !important;
+        }
+
+        .puzzle-info {
+            max-width: 320px;
+            text-align: left;
+        }
+
+        .puzzle-info h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .puzzle-info p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin-bottom: 17px;
+        }
+
+        .turn-label {
+            background: #8abf9117;
+            border: 1px solid #8abf9140;
+            color: var(--green);
+            display: inline-block;
+            padding: 8px 13px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 17px;
+        }
+
+        .puzzle-message {
+            min-height: 45px;
+            color: var(--gold);
+            font-weight: 800;
+            margin: 12px 0;
+        }
+
+        .secondary-btn {
+            background: #8abf91;
+            color: #17231c;
+            padding: 11px 18px;
+            border-radius: 11px;
+            font-weight: 900;
+        }
+
+        .secondary-btn:hover {
+            transform: scale(1.04);
+        }
+
+        /* QUOTE */
+
+        .quote-box {
+            background: #1d2d28;
+            border: 1px solid #f2c66d33;
+            border-radius: 24px;
+            text-align: center;
+            padding: 40px 25px;
+        }
+
+        .quote-symbol {
+            font-size: 45px;
+            color: var(--gold);
+        }
+
+        .quote-box h2 {
+            font-size: 24px;
+            margin: 10px 0 15px;
+        }
+
+        .quote-box p {
+            max-width: 650px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 1.8;
+            color: var(--muted);
+        }
+
+        .quote-box p span {
+            color: var(--gold);
+            font-weight: 900;
+        }
+
+        /* FINAL */
+
+        .final-section {
+            text-align: center;
+            padding: 15px 0 75px;
+        }
+
+        .final-section h2 {
+            font-size: 31px;
+            margin-bottom: 12px;
+        }
+
+        .final-section p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid #ffffff12;
+            padding: 25px 0;
+            text-align: center;
+            color: #718078;
+            font-size: 13px;
+        }
+
+        /* MODAL */
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #050b09d9;
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: .35s;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            width: min(460px, 100%);
+            padding: 40px 28px;
+            border-radius: 27px;
+            background: linear-gradient(145deg, #293d33, #17231e);
+            border: 1px solid #f2c66d44;
+            box-shadow: 0 25px 100px #0009;
+            text-align: center;
+            position: relative;
+
+            transform: translateY(35px) scale(.88);
+            transition: .4s cubic-bezier(.2,.8,.2,1);
+        }
+
+        .overlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 17px;
+            top: 13px;
+            background: transparent;
+            color: #aab9ac;
+            font-size: 27px;
+        }
+
+        .modal-icon {
+            font-size: 65px;
+            margin-bottom: 15px;
+        }
+
+        .modal h2 {
+            font-size: 27px;
+            margin-bottom: 13px;
+        }
+
+        .modal p {
+            color: #c0cec2;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .modal .primary-btn {
+            font-size: 14px;
+            padding: 13px 24px;
+        }
+
+        /* CONFETTI */
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            z-index: 200;
+            pointer-events: none;
+            animation: fall 3.5s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(700deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-13px); }
+        }
+
+        /* MOBILE */
+
+        @media(max-width: 700px) {
+            .wish-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .chess-layout {
+                gap: 25px;
+            }
+
+            .puzzle-info {
+                text-align: center;
+            }
+
+            .hero {
+                padding: 65px 5px;
+            }
+        }
+
+        @media(max-width: 450px) {
+            .wish-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                gap: 7px;
+            }
+
+            .stat strong {
+                font-size: 23px;
+            }
+
+            .stat span {
+                font-size: 11px;
+            }
+
+            .section-heading h2 {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <div class="logo">CHESS<span>GIFT</span> ♟</div>
+        <div class="header-label">ОСОБЛИВИЙ ДЕНЬ • 2026</div>
+    </header>
+
+    <!-- ГОЛОВНИЙ ЕКРАН -->
+
+    <div class="hero">
+
+        <div class="hero-tag">✦ СЬОГОДНІ ТВІЙ ОСОБЛИВИЙ ДЕНЬ ✦</div>
+
+        <h1>Привіт,<br><span>майбутній гросмейстере!</span></h1>
+
+        <p class="hero-description">
+            Сьогодні шахівниця належить тобі!
+            Попереду на тебе чекають побажання,
+            невеликі випробування та один особливий сюрприз.
+        </p>
+
+        <div class="hero-piece">♔</div>
+
+        <button class="primary-btn" onclick="openModal('main')">
+            Отримати привітання 🎁
+        </button>
+
+    </div>
+
+    <!-- ПОБАЖАННЯ -->
+
+    <section>
+
+        <div class="section-heading">
+            <div class="small">ТВОЯ КОЛЕКЦІЯ</div>
+            <h2>Побажання для тебе ✨</h2>
+            <p>Натискай на картки, щоб відкрити побажання!</p>
+        </div>
+
+        <div class="wish-grid">
+
+            <div class="wish-card" onclick="openWish(0)">
+                <div class="wish-icon">🏆</div>
+                <h3>Великих перемог</h3>
+                <p>Нехай кожна нова партія наближає тебе до мрії.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(1)">
+                <div class="wish-icon">🧠</div>
+                <h3>Гострого розуму</h3>
+                <p>Нехай твоя кмітливість завжди знаходить вихід.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(2)">
+                <div class="wish-icon">🚀</div>
+                <h3>Великих мрій</h3>
+                <p>Не бійся мріяти про неможливе.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(3)">
+                <div class="wish-icon">🤝</div>
+                <h3>Вірних друзів</h3>
+                <p>Нехай поруч будуть люди, на яких можна покластися.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(4)">
+                <div class="wish-icon">🍀</div>
+                <h3>Удачі в усьому</h3>
+                <p>Нехай навіть найскладніші завдання вирішуються легко.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(5)">
+                <div class="wish-icon">👑</div>
+                <h3>Впевненості в собі</h3>
+                <p>Ніколи не сумнівайся у власних можливостях.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(6)">
+                <div class="wish-icon">⚡</div>
+                <h3>Енергії та сил</h3>
+                <p>Нехай кожен день буде сповнений цікавих подій.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(7)">
+                <div class="wish-icon">🌍</div>
+                <h3>Неймовірних пригод</h3>
+                <p>Бажаємо побачити світ і спробувати багато нового.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+            <div class="wish-card" onclick="openWish(8)">
+                <div class="wish-icon">💎</div>
+                <h3>Справжнього щастя</h3>
+                <p>Нехай у житті буде більше моментів, які хочеться запам'ятати.</p>
+                <span class="card-hint">Відкрити побажання →</span>
+            </div>
+
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <strong>♟</strong>
+                <span>Нові партії</span>
+            </div>
+            <div class="stat">
+                <strong>∞</strong>
+                <span>Можливості</span>
+            </div>
+            <div class="stat">
+                <strong>100%</strong>
+                <span>До мрії</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ШАХОВЕ ЗАВДАННЯ -->
+
+    <section class="chess-section">
+
+        <div class="section-heading">
+            <div class="small">ТВОЄ ВИПРОБУВАННЯ</div>
+            <h2>Перевір свою стратегію ♟</h2>
+            <p>Один правильний хід відділяє тебе від секретного подарунка!</p>
+        </div>
+
+        <div class="chess-layout">
+
+            <div class="board-wrap">
+                <div class="board" id="board"></div>
+            </div>
+
+            <div class="puzzle-info">
+
+                <div class="turn-label">♙ ХІД БІЛИХ</div>
+
+                <h3>Мат в один хід!</h3>
+
+                <p>
+                    На дошці лише три фігури.
+                    Знайди правильний хід білого ферзя,
+                    який поставить чорному королю мат.
+                </p>
+
+                <p>
+                    Підказка: ферзь знаходиться на G6.
+                    Подумай, куди йому потрібно переміститися!
+                </p>
+
+                <div class="puzzle-message" id="puzzleMessage">
+                    Обери білого ферзя.
+                </div>
+
+                <button class="secondary-btn" onclick="resetPuzzle()">
+                    Почати заново ↻
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ЦИТАТА -->
+
+    <section class="quote-box">
+
+        <div class="quote-symbol">❝</div>
+
+        <h2>Трохи шахової мудрості</h2>
+
+        <p>
+            «Нехай проблеми обходяться так само легко,
+            як пішаки на шляху ферзя.
+            <span>Не бійся складних партій — саме вони роблять тебе сильнішим!</span>»
+        </p>
+
+    </section>
+
+    <!-- ФІНАЛЬНЕ ПРИВІТАННЯ -->
+
+    <div class="final-section">
+
+        <h2>І це ще не все! 🎉</h2>
+
+        <p>На нас чекає останнє особливе послання для тебе...</p>
+
+        <button class="primary-btn" onclick="openModal('secret')">
+            Відкрити таємне послання 👑
+        </button>
+
+    </div>
+
+    <footer>
+        Створено спеціально для тебе ♟ <br>
+        CHESSGIFT • З любов'ю та найкращими побажаннями
+    </footer>
+
+</div>
+
+<!-- МОДАЛЬНЕ ВІКНО -->
+
+<div class="overlay" id="overlay" onclick="outsideClose(event)">
+
+    <div class="modal">
+
+        <button class="close-btn" onclick="closeModal()">×</button>
+
+        <div class="modal-icon" id="modalIcon">🎁</div>
+
+        <h2 id="modalTitle">Вітаємо!</h2>
+
+        <p id="modalText"></p>
+
+        <button class="primary-btn" onclick="closeModal()">
+            Дякую! ❤️
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    // УСІ ПОБАЖАННЯ
+
+    const wishes = [
+        {
+            icon: "🏆",
+            title: "Великих перемог!",
+            text: "Бажаємо тобі одного дня зіграти партію, яку пам'ятатимуть ще довгі роки! Нехай кожна поразка стає уроком, а кожна перемога — приводом рухатися далі."
+        },
+        {
+            icon: "🧠",
+            title: "Гострого розуму!",
+            text: "Нехай твій розум буде швидшим за блискавку, а рішення точнішими за шахові комбінації. Розвивайся, вивчай нове й ніколи не переставай ставити запитання!"
+        },
+        {
+            icon: "🚀",
+            title: "Мрій масштабно!",
+            text: "Не обмежуй себе маленькими цілями. Можливо, одного дня ти станеш чемпіоном, винахідником або людиною, яка змінить світ!"
+        },
+        {
+            icon: "🤝",
+            title: "Справжніх друзів!",
+            text: "Нехай поруч будуть люди, з якими можна сміятися, ділитися секретами та разом долати будь-які труднощі."
+        },
+        {
+            icon: "🍀",
+            title: "Багато удачі!",
+            text: "Нехай тобі трапляються чудові можливості, цікаві люди та приємні несподіванки. А якщо щось не виходить — нехай вистачає сил спробувати ще раз."
+        },
+        {
+            icon: "👑",
+            title: "Вір у себе!",
+            text: "Навіть найвидатніші шахісти колись робили свої перші ходи. Не порівнюй себе з іншими — порівнюй себе сьогоднішнього із собою вчорашнім."
+        },
+        {
+            icon: "⚡",
+            title: "Енергії та веселощів!",
+            text: "Бажаємо тобі яскравих емоцій, цікавих занять, нових захоплень і безлічі приводів усміхатися!"
+        },
+        {
+            icon: "🌍",
+            title: "Неймовірних пригод!",
+            text: "Нехай життя буде схожим на цікаву шахову партію, у якій за кожним ходом відкривається щось нове!"
+        },
+        {
+            icon: "💎",
+            title: "Справжнього щастя!",
+            text: "Нехай поруч завжди будуть близькі люди, удома чекає тепло, а кожен день приносить хоча б одну причину порадіти."
+        }
+    ];
+
+    // МОДАЛЬНІ ВІКНА
+
+    const overlay = document.getElementById("overlay");
+
+    function showModal(icon, title, text) {
+
+        document.getElementById("modalIcon").textContent = icon;
+        document.getElementById("modalTitle").textContent = title;
+        document.getElementById("modalText").textContent = text;
+
+        overlay.classList.add("active");
+
+    }
+
+    function openWish(index) {
+
+        const wish = wishes[index];
+
+        showModal(wish.icon, wish.title, wish.text);
+
+    }
+
+    function openModal(type) {
+
+        if (type === "main") {
+
+            showModal(
+                "🎉",
+                "З ДНЕМ НАРОДЖЕННЯ!",
+                "Вітаємо тебе з цим чудовим днем! Бажаємо міцного здоров'я, неймовірного щастя, вірних друзів, здійснення мрій та безлічі незабутніх моментів. Нехай кожен новий рік приносить тобі ще більше можливостей, радості та перемог! Ніколи не здавайся і завжди йди до своєї мрії! ❤️"
+            );
+
+            confetti();
+
+        }
+
+        if (type === "secret") {
+
+            showModal(
+                "👑",
+                "ТИ — ГОЛОВНИЙ ГЕРОЙ!",
+                "Знаєш, у шахах король — найважливіша фігура. Але в житті не потрібно бути королем, щоб бути особливим. Просто залишайся собою, не бійся помилятися, вір у власні сили та цінуй людей поруч. Попереду на тебе чекає ще стільки дивовижного! Зі святом! 🎂"
+            );
+
+            confetti();
+
+        }
+
+    }
+
+    function closeModal() {
+        overlay.classList.remove("active");
+    }
+
+    function outsideClose(event) {
+
+        if (event.target === overlay) {
+            closeModal();
+        }
+
+    }
+
+    // СВЯТКОВЕ КОНФЕТІ
+
+    function confetti() {
+
+        const symbols = ["♟", "★", "✦", "🎉", "✨"];
+
+        for (let i = 0; i < 40; i++) {
+
+            const element = document.createElement("div");
+
+            element.className = "confetti";
+
+            element.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            element.style.left = Math.random() * 100 + "vw";
+
+            element.style.fontSize =
+                (15 + Math.random() * 20) + "px";
+
+            element.style.color = [
+                "#f2c66d",
+                "#8abf91",
+                "#ffffff"
+            ][Math.floor(Math.random() * 3)];
+
+            element.style.animationDuration =
+                (2 + Math.random() * 3) + "s";
+
+            document.body.appendChild(element);
+
+            setTimeout(() => element.remove(), 5500);
+
+        }
+
+    }
+
+    // ШАХОВА ГРА
+
+    const board = document.getElementById("board");
+
+    const puzzleMessage = document.getElementById("puzzleMessage");
+
+    let pieces = {};
+    let selected = null;
+    let solved = false;
+
+    function setupPieces() {
+
+        pieces = {
+            "f6": { symbol: "♔", color: "white" },
+            "g6": { symbol: "♕", color: "white" },
+            "h8": { symbol: "♚", color: "black" }
+        };
+
+    }
+
+    // СТВОРЕННЯ ДОШКИ
+
+    function createBoard() {
+
+        board.innerHTML = "";
+
+        for (let rank = 8; rank >= 1; rank--) {
+
+            for (let file = 0; file < 8; file++) {
+
+                const letter = "abcdefgh"[file];
+
+                const position = letter + rank;
+
+                const square = document.createElement("div");
+
+                square.className =
+                    "square " +
+                    ((rank + file) % 2 === 0
+                        ? "dark-square"
+                        : "light");
+
+                square.dataset.position = position;
+
+                // ШАХОВІ ФІГУРИ
+
+                if (pieces[position]) {
+
+                    const piece = document.createElement("span");
+
+                    piece.textContent = pieces[position].symbol;
+
+                    piece.className =
+                        pieces[position].color === "white"
+                            ? "piece-white"
+                            : "piece-black";
+
+                    square.appendChild(piece);
+
+                }
+
+                // КООРДИНАТИ
+
+                if (file === 0 || rank === 1) {
+
+                    const coord = document.createElement("span");
+
+                    coord.className = "coord";
+
+                    coord.textContent =
+                        file === 0 ? rank : letter;
+
+                    square.appendChild(coord);
+
+                }
+
+                // ПІДСВІЧУВАННЯ
+
+                if (position === selected) {
+                    square.classList.add("selected");
+                }
+
+                if (selected === "g6" && position === "g7") {
+                    square.classList.add("possible");
+                }
+
+                if (solved && position === "g7") {
+                    square.classList.add("winning");
+                }
+
+                square.addEventListener("click", function() {
+                    handleSquare(position);
+                });
+
+                board.appendChild(square);
+
+            }
+
+        }
+
+    }
+
+    // ОБРОБКА ХОДІВ
+
+    function handleSquare(position) {
+
+        if (solved) return;
+
+        // ВИБІР ФЕРЗЯ
+
+        if (selected === null) {
+
+            if (position === "g6") {
+
+                selected = "g6";
+
+                puzzleMessage.textContent =
+                    "Чудово! Тепер обери клітинку G7.";
+
+                createBoard();
+
+            } else {
+
+                puzzleMessage.textContent =
+                    "Спробуй обрати білого ферзя на G6!";
+
+            }
+
+            return;
+
+        }
+
+        // ПРАВИЛЬНИЙ ХІД
+
+        if (selected === "g6" && position === "g7") {
+
+            pieces["g7"] = pieces["g6"];
+
+            delete pieces["g6"];
+
+            selected = null;
+
+            solved = true;
+
+            puzzleMessage.textContent =
+                "♛ ШАХ І МАТ! Ти розв'язав задачу!";
+
+            createBoard();
+
+            setTimeout(() => {
+
+                showModal(
+                    "🏆",
+                    "НЕЙМОВІРНО! МАТ!",
+                    "Ти впорався із завданням! Ферзь на G7 поставив чорному королю мат. Це був твій особливий хід! Бажаємо тобі завжди знаходити правильні рішення не лише на шахівниці, а й у житті. Ти заслужив цей сюрприз! 👑"
+                );
+
+                confetti();
+
+            }, 800);
+
+            return;
+
+        }
+
+        // ПОВТОРНА СПРОБА
+
+        if (position === "g6") {
+
+            selected = "g6";
+
+            puzzleMessage.textContent =
+                "Ферзя обрано! Знайди правильну клітинку.";
+
+        } else {
+
+            selected = null;
+
+            puzzleMessage.textContent =
+                "Не зовсім! Спробуй ще раз. Підказка: G7.";
+
+        }
+
+        createBoard();
+
+    }
+
+    // СКИНУТИ ЗАВДАННЯ
+
+    function resetPuzzle() {
+
+        setupPieces();
+
+        selected = null;
+
+        solved = false;
+
+        puzzleMessage.textContent = "Обери білого ферзя.";
+
+        createBoard();
+
+    }
+
+    // ЗАПУСК
+
+    setupPieces();
+
+    createBoard();
+
+</script>
+
+</body>
+</html>
